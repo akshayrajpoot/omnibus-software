@@ -66,6 +66,10 @@ build do
     configure_args << "--disable-xattr --disable-acl"
   end
 
+  unless mac_os_x? || aix?
+    configure_args << "--libdir=#{install_dir}/embedded/lib"
+  end
+
   configure configure_args.join(" "), env: env
 
   make "-j #{workers}", env: env
