@@ -66,9 +66,7 @@ build do
     configure_args << "--disable-xattr --disable-acl"
   end
 
-  unless aix?
-    configure_args << "--libdir=#{install_dir}/embedded/lib"
-  end
+  configure_args << "--libdir=#{install_dir}/embedded/lib"
 
   configure configure_args.join(" "), env: env
 
