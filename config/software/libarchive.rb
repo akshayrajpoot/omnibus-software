@@ -66,7 +66,7 @@ build do
     configure_args << "--disable-xattr --disable-acl"
   end
 
-  unless mac_os_x? || aix?
+  unless aix?
     configure_args << "--libdir=#{install_dir}/embedded/lib"
   end
 
