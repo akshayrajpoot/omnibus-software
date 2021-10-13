@@ -48,6 +48,7 @@ build do
   env = with_standard_compiler_flags(with_embedded_path)
   update_config_guess(target: "build/autoconf/")
 
+  env["LDFLAGS"] << " -Wl,--disable-new-dtags"
   configure_args = [
     "--prefix=#{install_dir}/embedded",
     "--without-lzo2",
